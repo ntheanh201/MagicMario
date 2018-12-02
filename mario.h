@@ -76,16 +76,16 @@ void Mario::move(char **maps){
 }
 
 void Mario::updateStatus(int key){
-	if(key == 'w'){
+	if(key == 'w' || key == 72){
 		if (statusJump == IDLE){
 			timeJump = 6;
 			statusJump = ISJUMP;
 		}
 	}
-	else if(key == 'a'){
+	else if(key == 'a' || key == 75){
 		statusMove = LEFT;
 	}
-	else if(key == 'd'){
+	else if(key == 'd' || key == 77){
 		statusMove = RIGHT;
 	}
 	else{
