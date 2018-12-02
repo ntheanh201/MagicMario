@@ -7,6 +7,7 @@
 #include "console.h"
 using namespace std;
 
+float levels = 1;
 enum StatusGhost {
 	RIGHTn, LEFTn
 };
@@ -39,15 +40,23 @@ void Ghost::clear(){
 	cout << " ";
 }
 
+//levels -> speed
 void Ghost::move(){
+	float speed = 0.2;
+	if(levels == 2){
+		speed = 0.5;
+	}
+	else if(levels == 3){
+		speed = 0.7;
+	}
 	if(status == RIGHTn){
-		x-=0.3;
+		x -= speed;
 		if(x <= firstPoint){
 			status = LEFTn;
 		}
 	}
 	else {
-		x+=0.3;
+		x += speed;
 		if(x >= lastPoint){
 			status = RIGHTn;
 		}

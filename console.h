@@ -11,17 +11,7 @@
 #include <windows.h>
 using namespace std;
 
-HWND WINAPI GetConsoleWindow(void);
-
-// In ra man hinh tai dia diem nao do;
-//void gotoxy(int x, int y)
-//{
-//  static HANDLE h = NULL;  
-//  if(!h)
-//    h = GetStdHandle(STD_OUTPUT_HANDLE);
-//  COORD c = { x, y };  
-//  SetConsoleCursorPosition(h, c);
-//}
+//HWND WINAPI GetConsoleWindow(void);
 
 inline void settitle(char *title) //dat tieu de chon console
 {
