@@ -28,7 +28,7 @@ Mario::Mario(){
 	y = 23;
 
 	//HACK GAME :V
-//	x = 76;
+//	x = 74;
 //	y = 6;
 
 	statusMove = IDLE;

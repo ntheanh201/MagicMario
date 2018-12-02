@@ -33,10 +33,6 @@ void GameThread::init(){
 	for(int i = 0; i < rowMaps; i++){
 		for(int j = 0; j < colMaps; j++){
 			ifs >> maps[i][j];
-			if(maps[i][j] == '?' || maps[i][j] == '!'){
-				gifts = new GiftManager;
-				gifts -> myGifts.push_back(Gift(j, i));
-			}
 		}
 	}
     ifs.close();
@@ -88,18 +84,10 @@ void GameThread::draw(){
 				gotoxy(j, i);
 				cout << "?";
 			}
-			else if(maps[i][j] == '&'){
-				SetColor(19);
-				gotoxy(j, i);
-				cout << (char)254;
-			}
-			else if(maps[i][j] == '^'){
-				SetColor(25);
-				gotoxy(j, i);
-				cout << (char)6;
-			}
 			else if(maps[i][j] == '!'){
 				SetColor(36);
+				gifts = new GiftManager;
+				gifts -> myGifts.push_back(Gift(j, i));
 				gotoxy(j, i);
 				cout << "?";
 			}
@@ -108,10 +96,20 @@ void GameThread::draw(){
 				gotoxy(j, i);
 				cout << (char)222;
 			}
-			else if(maps[i][j] == '>'){
+			else if(maps[i][j] == '*'){
 				SetColor(12);
 				gotoxy(j, i);
-				cout << ">";
+				cout << "*";
+			}
+			else if(maps[i][j] == '['){
+				SetColor(12);
+				gotoxy(j, i);
+				cout << "[";
+			}
+			else if(maps[i][j] == ']'){
+				SetColor(12);
+				gotoxy(j, i);
+				cout << "]";
 			}
 			else {
 				SetColor(0);
@@ -122,7 +120,7 @@ void GameThread::draw(){
 		}
 		cout << endl;
 	}
-	SetColor(15); gotoxy(1, 0); cout << "Score: ";
+//	SetColor(15); gotoxy(1, 0); cout << "Score: ";
 }
 
 void GameThread::run(){
@@ -140,8 +138,8 @@ void GameThread::run(){
 		}
 		else key = '\0';
 		SetColor(15);
-		gotoxy(8, 0);
-		cout << score;
+//		gotoxy(8, 0);
+//		cout << score;
 		ma->update(key, maps);
 		gama -> move();
 		if(ma->isDie(maps) || check()){
@@ -170,7 +168,7 @@ bool GameThread::check(){
 }
 
 bool GameThread::isWin(){
-	if((int)ma->x == 75 && (int)ma->y == 6){
+	if((int)ma->x == 73 && (int)ma->y == 6){
 		return true;
 	}
 	return false;
