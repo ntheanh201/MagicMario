@@ -30,7 +30,7 @@ class Ghost{
 void Ghost::draw(){
 	gotoxy((int)x, (int)y);
 	srand(time(NULL));
-	SetColor(rand()%14+1);
+	SetColor(rand()%14+2);
 	cout << (char) 2;
 }
 
@@ -41,13 +41,13 @@ void Ghost::clear(){
 
 void Ghost::move(){
 	if(status == RIGHTn){
-		x-=0.7;
+		x-=0.3;
 		if(x <= firstPoint){
 			status = LEFTn;
 		}
 	}
 	else {
-		x+=0.7;
+		x+=0.3;
 		if(x >= lastPoint){
 			status = RIGHTn;
 		}

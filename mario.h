@@ -24,9 +24,10 @@ class Mario{
 };
 
 Mario::Mario(){
-	x = 3;
+	x = 2;
 	y = 23;
 
+	//HACK GAME :V
 //	x = 76;
 //	y = 6;
 
@@ -35,6 +36,7 @@ Mario::Mario(){
 }
 
 void Mario::move(char **maps){
+	
 //	gotoxy(0, 0);
 //	if(statusMove == RIGHT){
 //		cout << "right";

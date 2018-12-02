@@ -145,7 +145,7 @@ void GameThread::run(){
 		}
 	}
 	SetColor(15);
-	gotoxy(5, 10);
+	gotoxy(4, 10);
 	cout << "Tinh nang dang duoc phat trien. Moi cac ban don cho phien ban tiep theo :v" << endl;
 }
 
