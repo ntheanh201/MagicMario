@@ -40,6 +40,13 @@ void author(){
 	gotoxy(82, 12); cout << " | .  | | | | | | | | ";
 	gotoxy(82, 13); cout << " |_|  \_\_|_| |_|_| |_| ";
 	gotoxy(82, 14); cout << "                      ";
+	
+	SetColor(14);
+	gotoxy(82, 17);
+	cout << "User Manual:";
+	gotoxy(82, 18);
+	cout << "Use 'W', 'D', 'A'";
+	gotoxy(82, 19);cout <<"or UpArrow, LeftArrow, DownArrow";
 
 }
 

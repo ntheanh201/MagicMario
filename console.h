@@ -11,8 +11,6 @@
 #include <windows.h>
 using namespace std;
 
-//HWND WINAPI GetConsoleWindow(void);
-
 inline void settitle(char *title) //dat tieu de chon console
 {
     SetConsoleTitle(title);
@@ -83,5 +81,6 @@ int wherey()//lay vi tri toa do hien tai y cua con tro
   if (!GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE ),&csbi)) return -1;
   else return csbi.dwCursorPosition.Y;
 }
+
 #endif
 
