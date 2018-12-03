@@ -18,6 +18,7 @@ class GameThread{
 		bool check(); //check with ghosts
 		bool isWin();
 		bool changeScore();
+		void increaseScore(char **maps);
 };
 
 void GameThread::init(){
@@ -39,7 +40,7 @@ void GameThread::init(){
     score = 0;
     ma = new Mario;
     gama = new GhostManager;
-    
+    gifts = new GiftManager;
 }
 
 void GameThread::draw(){
@@ -86,8 +87,6 @@ void GameThread::draw(){
 			}
 			else if(maps[i][j] == '!'){
 				SetColor(36);
-				gifts = new GiftManager;
-				gifts -> myGifts.push_back(Gift(j, i));
 				gotoxy(j, i);
 				cout << "?";
 			}
@@ -120,13 +119,14 @@ void GameThread::draw(){
 		}
 		cout << endl;
 	}
-//	SetColor(15); gotoxy(1, 0); cout << "Score: ";
+	SetColor(15); gotoxy(1, 0); cout << "Score: ";
 }
 
 void GameThread::run(){
 	init();
 	draw();
 	while(1){
+		increaseScore(maps);
 		ma->draw();
 		gama -> draw();
 		Sleep(100);
@@ -138,8 +138,8 @@ void GameThread::run(){
 		}
 		else key = '\0';
 		SetColor(15);
-//		gotoxy(8, 0);
-//		cout << score;
+		gotoxy(8, 0);
+		cout << score;
 		ma->update(key, maps);
 		gama -> move();
 		if(ma->isDie(maps) || check()){
@@ -148,9 +148,6 @@ void GameThread::run(){
 		}
 		if(isWin()){
 			break;
-		}
-		if(changeScore()){
-			score ++;
 		}
 	}
 	SetColor(15);
@@ -175,9 +172,22 @@ bool GameThread::isWin(){
 }
 bool GameThread::changeScore(){
 	for(int i = 0; i < gifts->myGifts.size(); i++){
-		if((int)ma->x == gifts -> myGifts[i].x && (int)ma->y == gifts -> myGifts[i].y){
+		if((int)ma->x == (int)gifts -> myGifts[i].y && (int)ma->y == (int)gifts -> myGifts[i].x){
 			return true;
 		}
 	}
 	return false;
 }
+
+void GameThread::increaseScore(char **maps){
+	if(maps[(int)ma->y][(int)ma->x] == '?'){
+		score += 10;
+		maps[(int)ma->y][(int)ma->x] = '.';
+	}
+	if(maps[(int)ma->y][(int)ma->x] == '!'){
+		score += 20;
+		maps[(int)ma->y][(int)ma->x] = '.';
+	}
+}
+
+

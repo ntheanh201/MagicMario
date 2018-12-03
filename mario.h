@@ -78,7 +78,7 @@ void Mario::move(char **maps){
 void Mario::updateStatus(int key){
 	if(key == 'w' || key == 72){
 		if (statusJump == IDLE){
-			timeJump = 6;
+			timeJump = 5;
 			statusJump = ISJUMP;
 		}
 	}
@@ -111,9 +111,10 @@ void Mario::update(int key, char **map){
 }
 
 bool Mario::isDie(char **maps){
-	gotoxy(0, 0); cout << maps[(int)y+1][(int)x];
+//	gotoxy(0, 0); cout << maps[(int)y+1][(int)x];
 	if(maps[(int)y+1][(int)x] == 'a'){
 		return true;
 	}
 	return false;
 }
+

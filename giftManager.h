@@ -4,5 +4,5 @@
 class GiftManager {
 	public:
 		vector <Gift> myGifts;
-		void init(char **maps);
+//		void init(char **maps);
 };

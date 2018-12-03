@@ -42,7 +42,7 @@ void Ghost::clear(){
 
 //levels -> speed
 void Ghost::move(){
-	float speed = 0.2;
+	float speed = 0.3;
 	if(levels == 2){
 		speed = 0.5;
 	}
