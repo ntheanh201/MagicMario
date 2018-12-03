@@ -151,8 +151,15 @@ void GameThread::run(){
 		}
 	}
 	SetColor(15);
-	gotoxy(4, 10);
-	cout << "Tinh nang dang duoc phat trien. Moi cac ban don cho phien ban tiep theo :v" << endl;
+	gotoxy(10, 9); cout << "Chuc mung ban da giai cuu duoc Cong chua. Diem cua ban la: " << score;
+	gotoxy(10, 10);
+	cout << "Tuy nhien, khong lau sau do cong chua lai bi bat di   ";
+	gotoxy(10, 11);
+	cout << "boi mot ga ten la Kinn. Nhung thu thach nao dang cho";
+	gotoxy(10, 12);
+	cout << "don ban o phia truoc. Hay cho doi phien ban tiep theo";
+	gotoxy(10, 13);
+	cout << "                                                                     ";
 }
 
 bool GameThread::check(){
@@ -186,6 +193,10 @@ void GameThread::increaseScore(char **maps){
 	}
 	if(maps[(int)ma->y][(int)ma->x] == '!'){
 		score += 20;
+		maps[(int)ma->y][(int)ma->x] = '.';
+	}
+	if(maps[(int)ma->y][(int)ma->x] == '0'){
+		score += 30;
 		maps[(int)ma->y][(int)ma->x] = '.';
 	}
 }

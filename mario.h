@@ -24,12 +24,12 @@ class Mario{
 };
 
 Mario::Mario(){
-	x = 2;
-	y = 23;
+//	x = 2;
+//	y = 23;
 
 	//HACK GAME :V
-//	x = 74;
-//	y = 6;
+	x = 74;
+	y = 6;
 
 	statusMove = IDLE;
 	statusJump = IDLE;
