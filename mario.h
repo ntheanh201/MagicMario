@@ -24,12 +24,12 @@ class Mario{
 };
 
 Mario::Mario(){
-//	x = 2;
-//	y = 23;
+	x = 2;
+	y = 23;
 
 	//HACK GAME :V
-	x = 74;
-	y = 6;
+//	x = 74;
+//	y = 6;
 
 	statusMove = IDLE;
 	statusJump = IDLE;
@@ -96,7 +96,7 @@ void Mario::updateStatus(int key){
 void Mario::draw(){
 	SetColor(15);
 	gotoxy((int)x, (int)y);
-	cout << (char) 2;
+	cout << (char) 158;
 }
 
 void Mario::clear(){

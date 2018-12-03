@@ -32,7 +32,7 @@ void Ghost::draw(){
 	gotoxy((int)x, (int)y);
 	srand(time(NULL));
 	SetColor(rand()%14+2);
-	cout << (char) 2;
+	cout << (char) 227;
 }
 
 void Ghost::clear(){

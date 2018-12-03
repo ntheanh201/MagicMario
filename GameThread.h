@@ -5,6 +5,9 @@
 #include "giftManager.h"
 using namespace std;
 
+	int rowMaps = 26;
+	int colMaps = 82;
+
 class GameThread{
 	public:
 		int score;
@@ -17,15 +20,11 @@ class GameThread{
 		void draw();
 		bool check(); //check with ghosts
 		bool isWin();
-		bool changeScore();
 		void increaseScore(char **maps);
 };
 
 void GameThread::init(){
 	ifstream ifs("maps.txt");
-	
-	int rowMaps = 25;
-	int colMaps = 80;
 	
 	maps = new char *[rowMaps];
 	for(int i = 0; i < rowMaps; i++){
@@ -44,9 +43,6 @@ void GameThread::init(){
 }
 
 void GameThread::draw(){
-	
-	int rowMaps = 25;
-	int colMaps = 80;
 	
 	for(int i = 0; i < rowMaps; i++){
 		for(int j = 0; j < colMaps; j++){
@@ -120,6 +116,8 @@ void GameThread::draw(){
 		cout << endl;
 	}
 	SetColor(15); gotoxy(1, 0); cout << "Score: ";
+	gotoxy(27, 25);
+	cout << "NGUYEN THE ANH";
 }
 
 void GameThread::run(){
@@ -174,14 +172,6 @@ bool GameThread::check(){
 bool GameThread::isWin(){
 	if((int)ma->x == 73 && (int)ma->y == 6){
 		return true;
-	}
-	return false;
-}
-bool GameThread::changeScore(){
-	for(int i = 0; i < gifts->myGifts.size(); i++){
-		if((int)ma->x == (int)gifts -> myGifts[i].y && (int)ma->y == (int)gifts -> myGifts[i].x){
-			return true;
-		}
 	}
 	return false;
 }
