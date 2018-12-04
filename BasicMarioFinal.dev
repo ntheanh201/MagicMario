@@ -28,8 +28,8 @@ Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=00000000c0000000000000000
-UnitCount=9
+CompilerSettings=00000000c0000000001000000
+UnitCount=12
 
 [VersionInfo]
 Major=1
@@ -131,7 +131,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit10]
-FileName=giftManager.h
+FileName=ghost2.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -142,6 +142,26 @@ BuildCmd=
 
 [Unit8]
 FileName=gift.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit11]
+FileName=ghost2Manager.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit12]
+FileName=startScreen.h
 CompileCpp=1
 Folder=
 Compile=1

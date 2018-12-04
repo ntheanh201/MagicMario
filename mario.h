@@ -1,9 +1,9 @@
-#include<iostream>
+#include <iostream>
 #include "console.h"
 
 using namespace std;
 
-enum Status {
+enum StatusMario {
 	ISFALL, ISJUMP, IDLE, LEFT, RIGHT
 };
 
@@ -11,24 +11,27 @@ class Mario{
 	public:
 		int timeJump;
 		float x, y;
+		float x_afterDie, y_afterDie;
 		void move();
-		Status statusJump;
-		Status statusMove;
+		StatusMario statusJump;
+		StatusMario statusMove;
 		Mario();
 		void move(char **map);
 		void updateStatus(int key);
 		void draw();
+		void drawAfterDie();
 		void clear();
 		void update(int key, char **map);
 		bool isDie(char **maps);
 };
 
 Mario::Mario(){
+	Nocursortype();
 	x = 2;
-	y = 23;
-
-	//HACK GAME :V
-//	x = 74;
+	y = 20;
+	
+//	HACK GAME :V
+//	x = 73;
 //	y = 6;
 
 	statusMove = IDLE;

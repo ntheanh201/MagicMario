@@ -3,6 +3,8 @@
 #include "mario.h"
 #include "ghostManager.h"
 #include "giftManager.h"
+#include "ghost2Manager.h"
+
 using namespace std;
 
 	int rowMaps = 26;
@@ -15,6 +17,7 @@ class GameThread{
 		void init();
 		Mario *ma;
 		GhostManager *gama;
+		Ghost2Manager *ghost2;
 		GiftManager *gifts;
 		char **maps;
 		void draw();
@@ -39,6 +42,7 @@ void GameThread::init(){
     score = 0;
     ma = new Mario;
     gama = new GhostManager;
+    ghost2 = new Ghost2Manager;
     gifts = new GiftManager;
 }
 
@@ -127,9 +131,11 @@ void GameThread::run(){
 		increaseScore(maps);
 		ma->draw();
 		gama -> draw();
+		ghost2 -> draw();
 		Sleep(100);
 		ma->clear();
 		gama->clear();
+		ghost2->clear();
 		int key;
 		if(kbhit()){
 			key = getch();
@@ -140,6 +146,7 @@ void GameThread::run(){
 		cout << score;
 		ma->update(key, maps);
 		gama -> move();
+		ghost2 -> move();
 		if(ma->isDie(maps) || check()){
 			init();
 			draw();
@@ -162,7 +169,7 @@ void GameThread::run(){
 
 bool GameThread::check(){
 	for(int i = 0; i < gama->myGhosts.size(); i++){
-		if((int)ma->x == (int)gama->myGhosts[i].x && (int)ma->y == (int)gama->myGhosts[i].y){
+		if((int)ma->x == (int)gama->myGhosts[i].x && (int)ma->y == (int)gama->myGhosts[i].y || ((int)ma->x == (int)ghost2->myGhosts2[i].x && (int)ma->y == (int)ghost2->myGhosts2[i].y)){
 			return true;
 		}
 	}
@@ -170,7 +177,7 @@ bool GameThread::check(){
 }
 
 bool GameThread::isWin(){
-	if((int)ma->x == 73 && (int)ma->y == 6){
+	if((int)ma->x == 74 && (int)ma->y == 6){
 		return true;
 	}
 	return false;
